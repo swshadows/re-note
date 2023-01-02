@@ -2,8 +2,10 @@ import { Router } from "express";
 import NoteController from "../controller/Note.controller";
 const routes = Router();
 
-routes.post("/add", NoteController.Add);
-routes.put("/edit/:id", NoteController.Edit);
-routes.get("/:id", NoteController.Get);
+routes.get("/", NoteController.getAll);
+routes.post("/add", NoteController.add);
+routes.put("/edit/:id", NoteController.edit);
+routes.get("/:id", NoteController.get);
+routes.delete("/:id", NoteController.delete);
 
 export default routes;
