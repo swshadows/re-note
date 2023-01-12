@@ -11,12 +11,12 @@
     </label>
     <label>
       <p>Corpo:</p>
-      <input
+      <textarea
         type="text"
         placeholder="Insira o conteudo da nota"
         required
         v-model="body"
-      />
+      ></textarea>
     </label>
     <button>Submit</button>
   </form>
@@ -36,9 +36,9 @@ async function handleForm() {
     const res = await axiosService.add(title.value, body.value);
     show.value = true;
     if (res === true) {
-      result.value = "Nota criada com sucesso";
+      result.value = "✅ Nota criada com sucesso";
     } else {
-      result.value = "Ocorreu um erro";
+      result.value = "❌ Ocorreu um erro";
     }
     title.value = "";
     body.value = "";
@@ -64,9 +64,11 @@ p {
   text-align: left;
   margin-top: 20px;
 }
-input {
+input,
+textarea {
   width: 100%;
   padding: 1em;
+  resize: vertical;
 }
 button {
   margin-top: 10px;

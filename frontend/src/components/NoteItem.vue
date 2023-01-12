@@ -1,30 +1,51 @@
 <template>
-  <div class="note">
+  <div class="note" :class="{ deleting: deleting }">
     <h1>{{ note.title }}</h1>
     <p>{{ note.body }}</p>
     <div class="buttons">
-      <button class="edit" @click="editNote">✏</button>
+      <button class="edit" @click="toggleModal">✏</button>
       <button class="delete" @click="deleteNote">🗑</button>
     </div>
   </div>
+  <ModalItem
+    @fetch-all-modal="emits('fetchAll')"
+    @toggle-modal="toggleModal"
+    v-if="editing"
+    :id="note._id"
+  />
 </template>
 
 <script setup lang="ts">
+import ModalItem from "@/components/ModalItem.vue";
+
 import axiosService from "@/services/axiosService";
+import { ref } from "vue";
 
 const props = defineProps({
   note: { type: Object, default: String },
 });
-const emits = defineEmits(["fetchAll"]);
 
-function editNote() {
-  console.log("Editando nota");
-}
+const emits = defineEmits(["fetchAll"]);
+const editing = ref(false);
+const deleting = ref(false);
+
 async function deleteNote() {
-  const res = await axiosService.delete(props.note._id);
-  if (res) {
-    emits("fetchAll");
+  const confirmation = confirm(
+    "🚮 Confirme que deseja apagar a nota!\nAVISO: Essa ação é irreversível "
+  );
+  if (confirmation) {
+    const res = await axiosService.delete(props.note._id);
+    if (res) {
+      deleting.value = true;
+      setTimeout(() => {
+        emits("fetchAll");
+      }, 200);
+    }
   }
+}
+
+function toggleModal() {
+  editing.value = !editing.value;
 }
 </script>
 
@@ -38,6 +59,10 @@ async function deleteNote() {
   &:hover {
     transform: scale(1.1);
     box-shadow: 0 0 10px 5px #2b2b2b;
+  }
+  &.deleting {
+    transition: 0.2s all;
+    transform: scale(0);
   }
 }
 h1 {
