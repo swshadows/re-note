@@ -7,5 +7,5 @@ RUN npm install
 COPY --chown=node:node . .
 USER node
 
-EXPOSE 3001
-CMD ["npm", "start"]
+EXPOSE 8080
+CMD ["npm", "run", "serve"]

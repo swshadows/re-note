@@ -1,10 +1,12 @@
 import express, { urlencoded } from "express";
 import dotenv from "dotenv";
+import cors from "cors";
 import routes from "./routes/routes";
 import mongoose from "mongoose";
 dotenv.config();
 
 const server = express();
+server.use(cors());
 server.use(urlencoded({ extended: false }));
 server.use(express.json());
 server.use(routes);
