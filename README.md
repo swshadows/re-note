@@ -23,5 +23,5 @@
     cd re-notes
   ```
 
-- Use o comando `docker-compose up --build` para inicializar a aplicação
+- Use o comando `npm start` para inicializar a aplicação
 - Acesse pelo endereço https://localhost:3000
