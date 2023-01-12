@@ -2,14 +2,30 @@
   <div class="note">
     <h1>{{ note.title }}</h1>
     <p>{{ note.body }}</p>
+    <div class="buttons">
+      <button class="edit" @click="editNote">✏</button>
+      <button class="delete" @click="deleteNote">🗑</button>
+    </div>
   </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from "vue";
-export default defineComponent({
-  props: ["note"],
+<script setup lang="ts">
+import axiosService from "@/services/axiosService";
+
+const props = defineProps({
+  note: { type: Object, default: String },
 });
+const emits = defineEmits(["fetchAll"]);
+
+function editNote() {
+  console.log("Editando nota");
+}
+async function deleteNote() {
+  const res = await axiosService.delete(props.note._id);
+  if (res) {
+    emits("fetchAll");
+  }
+}
 </script>
 
 <style lang="scss" scoped>
@@ -30,5 +46,27 @@ h1 {
 }
 p {
   color: #787878;
+}
+.buttons {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  button {
+    border: none;
+    padding: 0.4em;
+    background: #787878;
+    color: #fff;
+    font-size: 1.3rem;
+    width: 50px;
+    height: 50px;
+    transition: all 0.2s;
+    cursor: pointer;
+    &.delete {
+      background: rgb(255, 73, 73);
+    }
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
 }
 </style>

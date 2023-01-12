@@ -1,0 +1,22 @@
+{
+  "name": "re-note",
+  "version": "1.0.0",
+  "description": "> 📋 Uma aplicação de gerenciamento de notas simples, para aprendizado do Docker e utilização da Stack MEVN",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "docker:dev": "docker-compose up --build --attach web --attach api",
+    "start": "docker-compose up --build"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/swshadows/re-note.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/swshadows/re-note/issues"
+  },
+  "homepage": "https://github.com/swshadows/re-note#readme"
+}

@@ -1,13 +1,14 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/notes">Notas</router-link>
+    <router-link to="/">Home</router-link>
+    | <router-link to="/notes">Notas</router-link> |
+    <router-link to="/create">Criar nota</router-link>
   </nav>
 
   <router-view />
 </template>
 
-<style src="" lang="scss">
+<style lang="scss">
 @import "@/scss/_colors.scss";
 @import url("https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap");
 * {

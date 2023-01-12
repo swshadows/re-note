@@ -1,4 +1,4 @@
-# my-notes
+# Re-Note
 
 > 📋 Uma aplicação de gerenciamento de notas simples, para aprendizado do Docker e utilização da Stack MEVN
 

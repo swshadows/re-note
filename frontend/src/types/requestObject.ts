@@ -1,9 +1,6 @@
-export interface reqObjNew {
+export default interface requestObject {
+  _id: string;
   title: string;
   body: string;
-}
-
-export interface reqObj extends reqObjNew {
-  _id: string;
   date: string;
 }
