@@ -7,7 +7,9 @@
   <router-view />
 </template>
 
-<style>
+<style src="" lang="scss">
+@import "@/scss/_colors.scss";
+@import url("https://fonts.googleapis.com/css2?family=Sofia+Sans&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -18,7 +20,7 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  font-family: "Sofia Sans", sans-serif;
 }
 
 nav {
@@ -31,6 +33,6 @@ nav a {
 }
 
 nav a.router-link-exact-active {
-  color: #42b983;
+  color: $color;
 }
 </style>

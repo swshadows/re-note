@@ -1,6 +1,6 @@
 # my-notes
 
-> 📋 Uma aplicação básica para testar o Docker
+> 📋 Uma aplicação de gerenciamento de notas simples, para aprendizado do Docker e utilização da Stack MEVN
 
 <!-- <div align="center">
     <img width=200 src="./public/favicon.png">
@@ -16,4 +16,12 @@
 
 </div>
 
-- TODO
+- Use os comandos para clonar o repositório
+
+  ```bash
+    git clone https://github.com/swshadows/re-notes.git
+    cd re-notes
+  ```
+
+- Use o comando `docker-compose up --build` para inicializar a aplicação
+- Acesse pelo endereço https://localhost:3000

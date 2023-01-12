@@ -1,5 +1,6 @@
 <template>
   <div class="home">
+    <img src="@/assets/logo.png" />
     <h2>📋 Re-Note</h2>
     <p>Uma aplicação de gerenciamento de notas simples</p>
   </div>
@@ -14,7 +15,21 @@ export default defineComponent({
 </script>
 
 <style lang="scss" scoped>
+.home {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.home * {
+  transition: all 200ms;
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+img {
+  width: 200px;
+}
 h2 {
-  margin-bottom: 3em;
+  margin: 1em 0 1.4em;
 }
 </style>

@@ -6,8 +6,7 @@ export default {
   async getAll() {
     const res = await axios.get(baseUrl);
     if (res.status === 200) {
-      const { data } = res;
-      const { notes } = data;
+      const { notes } = res.data;
       if (notes) {
         const parseData: Array<reqObjNew> = [];
         notes.forEach((e: reqObj) => {
@@ -18,10 +17,7 @@ export default {
       }
     }
   },
-  async get(id: string) {
-    const res = await axios.get(`${baseUrl}/${id}`);
-    return res;
-  },
+  // async get() {},
   // add() {},
   // edit() {},
   // delete() {},
